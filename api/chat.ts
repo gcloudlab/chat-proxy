@@ -27,5 +27,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const response = (await fetch( `${baseUrl}/v1/chat/completions`, initOptions)) as Response;
   // console.log(response);
 
-  return new Response(parseOpenAIStream(response));
+  return res.send({res: parseOpenAIStream(response)})
+  // return new Response(parseOpenAIStream(response));
 }

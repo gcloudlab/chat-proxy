@@ -11,11 +11,11 @@ export const generatePayload = (
 ): RequestInit => ({
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer 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`,
+    Authorization: `Bearer ${apiKey}`,
   },
   method: "POST",
   body: JSON.stringify({
-    model: "gpt-3.5-turbo",
+    model: "gpt-3.5-turbo1",
     messages,
     temperature: 0.6,
     stream: true,
