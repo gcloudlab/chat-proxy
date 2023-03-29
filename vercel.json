@@ -1,3 +1,7 @@
 {
-  "rewrites": [{ "source": "/chat", "destination": "/api/chat" }]
+  "routes": [
+    { "src": "/chat", "dest": "/api/chat" },
+    { "src": "/chats", "methods": ["POST"], "dest": "/api/chat" },
+    { "src": "/legacy", "status": 404 }
+  ]
 }

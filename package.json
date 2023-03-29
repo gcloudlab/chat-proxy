@@ -2,6 +2,10 @@
   "repository": "https://github.com/gcloudlab",
   "license": "MIT",
   "private": true,
+  "dependencies": {
+    "undici": "^5.20.0",
+    "eventsource-parser": "^0.1.0"
+  },
   "devDependencies": {
     "@types/node": "^17.0.42",
     "@vercel/node": "^2.9.6",
