@@ -17,14 +17,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
   const initOptions = generatePayload(apiKey, messages);
 
-  // // #vercel-disable-blocks
+  // #vercel-disable-blocks
   // if (httpsProxy) {
   //   initOptions["dispatcher"] = new ProxyAgent(httpsProxy);
   // }
-  // // #vercel-end
+  // #vercel-end
 
   // @ts-ignore
   const response = (await fetch( `${baseUrl}/v1/chat/completions`, initOptions)) as Response;
+  // console.log(response);
 
   return new Response(parseOpenAIStream(response));
 }

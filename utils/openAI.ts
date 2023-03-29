@@ -11,7 +11,7 @@ export const generatePayload = (
 ): RequestInit => ({
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${apiKey}`,
+    Authorization: `Bearer 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`,
   },
   method: "POST",
   body: JSON.stringify({
