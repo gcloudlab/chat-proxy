@@ -1,7 +1,7 @@
 import { generatePayload, parseOpenAIStream } from "../utils/openAI";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 // #vercel-disable-blocks
-import { fetch, ProxyAgent } from "undici";
+// import { fetch, ProxyAgent } from "undici";
 // #vercel-end
 
 const apiKey = process.env.OPENAI_API_KEY || "";
@@ -18,9 +18,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const initOptions = generatePayload(customKey ? customKey : apiKey, messages);
 
   // #vercel-disable-blocks
-  if (httpsProxy) {
-    initOptions["dispatcher"] = new ProxyAgent(httpsProxy);
-  }
+  // if (httpsProxy) {
+  //   initOptions["dispatcher"] = new ProxyAgent(httpsProxy);
+  // }
   // #vercel-end
 
   // @ts-ignore
