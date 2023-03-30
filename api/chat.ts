@@ -1,7 +1,7 @@
 import { generatePayload, parseOpenAIStream } from "../utils/openAI";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 // #vercel-disable-blocks
-// import { fetch, ProxyAgent } from "undici";
+import { fetch, ProxyAgent } from "undici";
 // #vercel-end
 
 const apiKey = process.env.OPENAI_API_KEY || "";
@@ -9,18 +9,18 @@ const httpsProxy = process.env.HTTPS_PROXY || "";
 const baseUrl = process.env.OPENAI_API_BASE_URL || "";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const { messages } = req.body;
+  const { messages, customKey } = req.body;
   // console.log(req.body);
 
   if (!messages) {
-    return new Response("No input text");
+    return res.send({ code: 406, msg: "输入不能为空", data: null })
   }
-  const initOptions = generatePayload(apiKey, messages);
+  const initOptions = generatePayload(customKey ? customKey : apiKey, messages);
 
   // #vercel-disable-blocks
-  // if (httpsProxy) {
-  //   initOptions["dispatcher"] = new ProxyAgent(httpsProxy);
-  // }
+  if (httpsProxy) {
+    initOptions["dispatcher"] = new ProxyAgent(httpsProxy);
+  }
   // #vercel-end
 
   // @ts-ignore
@@ -28,7 +28,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // console.log(await response.json());
   // console.log(parseOpenAIStream(response));
   if (!response.ok) {
-    return res.send({ code: 405, msg: response.statusText })
+    return res.send({ code: 405, msg: response.statusText, data: null })
   }
   // const data = response.body;
 
@@ -45,6 +45,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   //   console.log(parse?.choices[0]?.message?.content);
   // }
 
-  return res.send({res: await response.json()})
+  return res.send({ code: 200, data: await response.json(), msg: "请求成功" })
   // return new Response(parseOpenAIStream(response));
 }
