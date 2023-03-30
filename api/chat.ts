@@ -1,4 +1,4 @@
-import { generatePayload, parseOpenAIStream } from "../utils/openAI";
+import { generatePayload } from "../utils/openAI";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 // #vercel-disable-blocks
 // import { fetch, ProxyAgent } from "undici";
