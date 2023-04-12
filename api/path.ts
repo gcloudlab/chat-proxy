@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     {
       name: "导航",
-      path: "https://path.navnav.top",
+      path: "https://nav.navnav.top",
     },
   ];
 
