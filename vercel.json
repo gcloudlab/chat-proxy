@@ -1,6 +1,6 @@
 {
   "routes": [
     { "src": "/chats", "methods": ["POST"], "dest": "/api/chat" },
-    { "src": "/path", "methods": ["POST"], "dest": "/api/path" }
+    { "src": "/path", "methods": ["GET"], "dest": "/api/path" }
   ]
 }
