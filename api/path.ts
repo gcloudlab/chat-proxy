@@ -8,7 +8,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     {
       name: "Pro",
-      path: "https://b.qachat.pro",
+      path: "https://c.qachat.pro",
     },
     {
       name: "导航",
