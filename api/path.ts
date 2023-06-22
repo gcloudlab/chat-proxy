@@ -3,12 +3,12 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const paths = [
     {
-      name: "QAchat",
-      path: "https://d.mydog.buzz",
+      name: "AIer",
+      path: "https://ai.aging.run",
     },
     {
-      name: "Pro",
-      path: "https://d.qachat.pro",
+      name: "Shop",
+      path: "https://shop.taoist.fun",
     },
     {
       name: "导航",
