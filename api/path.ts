@@ -11,8 +11,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       path: "https://shop.taoist.fun",
     },
     {
-      name: "导航",
-      path: "https://nav.navnav.top",
+      name: "在线",
+      path: "https://chat.aging.run",
     },
   ];
 
