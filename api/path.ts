@@ -4,7 +4,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const paths = [
     {
       name: "AIer",
-      path: "https://b.aging.run",
+      path: "https://c.aging.run",
     },
     {
       name: "Shop",
