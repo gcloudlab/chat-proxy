@@ -6,243 +6,261 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <title>我帮你导AI</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSZKWTLD9Q"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-NSZKWTLD9Q');
-    </script>
+    <title>OhGPT | 我帮你导</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
       body {
-        /* width: 100vw; */
-        background: #f5e6d8;
+        width: 100vw;
+        height: 100vh;
+        background: #fffaf5;
       }
       .content {
-        text-align: center;
-        /* width: 100%; */
+        /* text-align: center; */
+        width: 100%;
+        height: 100%;
         /* margin: 100px auto; */
-        margin-top: 50px;
-        /*         padding: 30px; */
-      }
-      a {
-        color: brown;
-        /* font-size: 20px; */
-        font-weight: 700;
-      }
-
-      .imgs {
-        margin-top: 50px;
+        /* padding: 0 20px; */
         display: flex;
-        flex-direction: column;
         justify-content: center;
+        /* margin-top: 100px; */
         align-items: center;
       }
-      .imgs img {
-        width: 90vw;
-      }
-      .img1 {
-        margin-bottom: 20px;
-      }
-      @media (max-width: 768px) {
-        .imgs img {
-          width: 90vw;
-        }
+
+      .card {
+        min-width: 350px;
+        /* height: 420px; */
+        margin: 0 15px;
+        background: #e8eaea;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
-      /* 针对电脑浏览器的样式 */
-      @media (min-width: 769px) {
-        .imgs {
-          margin-top: 50px;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-        }
-        .imgs img {
-          width: 30vw;
-        }
-        .img1 {
-          margin-bottom: 0;
-          margin-right: 30px;
-        }
+      .title,
+      .more {
+        padding: 10px 15px;
       }
 
-      .button {
-        --width: 100px;
-        --height: 35px;
-        --tooltip-height: 35px;
-        --tooltip-width: 90px;
-        --gap-between-tooltip-to-button: 18px;
-        --button-color: #1163ff;
-        --tooltip-color: #fff;
-        width: var(--width);
-        height: var(--height);
-        background: var(--button-color);
-        position: relative;
-        text-align: center;
-        border-radius: 0.45em;
-        font-family: "Arial";
-        transition: background 0.3s;
-      }
-
-      .button::before {
-        position: absolute;
-        content: attr(data-tooltip);
-        width: var(--tooltip-width);
-        height: var(--tooltip-height);
-        background-color: var(--tooltip-color);
-        font-size: 0.9rem;
-        color: #111;
-        border-radius: 0.25em;
-        line-height: var(--tooltip-height);
-        bottom: calc(
-          var(--height) + var(--gap-between-tooltip-to-button) + 10px
-        );
-        left: calc(50% - var(--tooltip-width) / 2);
-      }
-
-      .button::after {
-        position: absolute;
-        content: "";
-        width: 0;
-        height: 0;
-        border: 10px solid transparent;
-        border-top-color: var(--tooltip-color);
-        left: calc(50% - 10px);
-        bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
-      }
-
-      .button::after,
-      .button::before {
-        opacity: 0;
-        visibility: hidden;
+      .user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
         transition: all 0.5s;
       }
 
-      .text {
+      .user__content {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
+        flex-grow: 1;
       }
 
-      .button-wrapper,
-      .text,
-      .icon {
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        color: #fff;
-      }
-
-      .text {
-        top: 0;
-      }
-
-      .text,
-      .icon {
-        transition: top 0.5s;
-      }
-
-      .icon {
-        color: #fff;
-        top: 100%;
+      .user__container {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
       }
 
-      .icon svg {
-        width: 24px;
-        height: 24px;
+      .title {
+        font-weight: 900;
+        font-size: 1.3em;
       }
 
-      .button:hover {
-        background: #6c18ff;
+      .name {
+        font-weight: 800;
       }
 
-      .button:hover .text {
-        top: -100%;
+      .username {
+        font-size: 0.9em;
+        color: #64696e;
       }
 
-      .button:hover .icon {
-        top: 0;
-      }
-
-      .button:hover:before,
-      .button:hover:after {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .button:hover:after {
-        bottom: calc(
-          var(--height) + var(--gap-between-tooltip-to-button) - 20px
+      .image1 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(233, 123, 96) 41%,
+          rgba(89, 177, 237, 1) 100%
         );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image2 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgba(197, 233, 96, 0.692) 41%,
+          rgba(89, 177, 237, 1) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image3 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(96, 229, 233) 41%,
+          rgba(89, 177, 237, 1) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image4 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(233, 96, 233) 41%,
+          rgba(89, 177, 237, 1) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image5 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(184, 184, 184) 41%,
+          rgb(0, 0, 0) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
       }
 
-      .button:hover:before {
-        bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+      .follow {
+        border: none;
+        border-radius: 25px;
+        background-color: #0f1113;
+        color: white;
+        padding: 8px 15px;
+        font-weight: 700;
+        margin-left: 15px;
+        width: 80px;
       }
 
-      /*  */
+      .follow a {
+        color: white;
+      }
+
+      .more {
+        display: block;
+        text-decoration: none;
+        color: rgb(29, 155, 240);
+        font-weight: 800;
+      }
+
+      .user:hover {
+        background-color: #b3b6b6;
+        /* transition: all 0.5s; */
+      }
+
+      .follow:hover {
+        background-color: #2c3136;
+      }
     </style>
   </head>
   <body>
     <div class="content">
-      <h1>我帮你导</h1>
-      <div>
-        <p style="color: red; font-weight: 700">建议保存此网页作为导航</p>
-         <p>
-          免登录+免费聊天+免费绘画AI网站：
-          <a href="https://c.aging.run" target="_blank">点击跳转</a>
-        </p>
-        <p>
-          ChatGPT账号(4.0 / 3.5)专卖店
-          <a href="https://shop.taoist.fun" target="_blank">点击跳转</a>
-        </p>
-        
-        <div
-          style="display: flex; align-items: center; justify-content: center"
-        >
-          安卓版App：
-          <a href="https://a.aging.run/QAchat.apk" target="_blank">
-            <div class="button" data-tooltip="Size: 4.1Mb">
-              <div class="button-wrapper">
-                <div class="text">点击下载</div>
-                <span class="icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    role="img"
-                    width="2em"
-                    height="2em"
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"
-                    ></path>
-                  </svg>
-                </span>
+      <div class="card">
+        <p class="title">OhGPT - 我帮你导</p>
+        <div class="user__container">
+          <div class="user">
+            <div class="image1"></div>
+            <div class="user__content">
+              <div class="text">
+                <span class="name">公益ChatGPT - AIer</span>
+                <p class="username">@免登录+免费聊天+免费绘画</p>
               </div>
+              <button class="follow">
+                <a href="https://c.aging.run" target="_blank">前往</a>
+              </button>
             </div>
-          </a>
-        </div>
+          </div>
+          <div class="user">
+            <div class="image2"></div>
+            <div class="user__content">
+              <div class="text">
+                <span class="name">升级VIP站点 - OhGPT</span>
+                <p class="username">@敬请期待</p>
+              </div>
+              <button class="follow">
+                哔哔
+                <!-- <a href="https://c.aging.run" target="_blank">点击跳转</a> -->
+              </button>
+            </div>
+          </div>
+          <div class="user">
+            <div class="image3"></div>
+            <div class="user__content">
+              <div class="text">
+                <span class="name">ChatGPT账号专卖店</span>
+                <p class="username">@账号、密钥你想要的这里都有</p>
+              </div>
+              <button class="follow">
+                <a href="https://shop.taoist.fun" target="_blank">前往</a>
+              </button>
+            </div>
+          </div>
+          <div class="user">
+            <div class="image4"></div>
+            <div class="user__content">
+              <div class="text">
+                <span class="name">安卓版App</span>
+                <p class="username">@集成网站，防止走失</p>
+              </div>
+              <button class="follow">
+                <a href="https://c.aging.run/QAchat.apk" target="_blank"
+                  >下载</a
+                >
+              </button>
+            </div>
+          </div>
 
-        <hr>
-        <p>导航1号：<a href="https://nav.navnav.top" target="_blank">https://nav.navnav.top</a></p>
-        <p>导航2号：<a href="https://gcloudlab.github.io/nav" target="_blank">https://gcloudlab.github.io/nav</a></p>
-        <p>交流群：634323049</p>
+          <div
+            class="user"
+            style="border-top: 1px dashed rgba(128, 128, 128, 0.205)"
+          >
+            <div class="image5"></div>
+            <div class="user__content">
+              <div class="text">
+                <span class="name">导航1号</span>
+                <p class="username">@收藏站点，以防走失</p>
+              </div>
+              <button class="follow">
+                <a href="https://gcloudlab.github.io/nav" target="_blank"
+                  >地址</a
+                >
+              </button>
+            </div>
+          </div>
+          <div class="user">
+            <div class="image5"></div>
+            <div class="user__content">
+              <div class="text">
+                <span class="name">导航2号</span>
+                <p class="username">@收藏站点，以防走失</p>
+              </div>
+              <button class="follow">
+                <a href="https://nav.navnav.top" target="_blank">地址</a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <span class="more">建议保存此网页作为导航页，交流群：634323049</span>
       </div>
     </div>
   </body>
