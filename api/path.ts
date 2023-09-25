@@ -7,13 +7,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       path: "https://c.aging.run",
     },
     {
-      name: "Shop",
-      path: "https://shop.taoist.fun",
+      name: "OiChat",
+      path: "https://oi.aging.run",
     },
     {
-      name: "导航",
-      path: "https://gcloudlab.github.io/nav",
-    },
+      name: "Shop",
+      path: "https://shop.taoist.fun",
+    }
   ];
 
   return res.send({ code: 200, data: paths, msg: "请求成功" });
