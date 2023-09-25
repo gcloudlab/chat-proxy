@@ -8,7 +8,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     {
       name: "OiChat",
-      path: "https://oi.aging.run",
+      path: "https://chat.oihub.cc",
     },
     {
       name: "Shop",
