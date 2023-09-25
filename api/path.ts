@@ -13,6 +13,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     {
       name: "Shop",
       path: "https://shop.taoist.fun",
+    },
+    {
+      name: "导航",
+      path: "https://gcloudlab.github.io/nav/",
     }
   ];
 
