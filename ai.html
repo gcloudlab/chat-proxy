@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>正在跳转中</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        background: #fffaf5;
+      }
+      .content {
+        /* text-align: center; */
+        width: 100%;
+        height: 100%;
+        /* margin: 100px auto; */
+        /* padding: 0 20px; */
+        display: flex;
+        justify-content: center;
+        /* margin-top: 100px; */
+        align-items: center;
+      }
+
+      .card {
+        min-width: 350px;
+        /* height: 420px; */
+        margin: 0 15px;
+        background: #e8eaea;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .title,
+      .more {
+        padding: 10px 15px;
+      }
+
+      .user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        transition: all 0.5s;
+      }
+
+      .user__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1;
+      }
+
+      .user__container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .title {
+        font-weight: 900;
+        font-size: 1.3em;
+      }
+
+      .name {
+        font-weight: 800;
+      }
+
+      .username {
+        font-size: 0.9em;
+        color: #64696e;
+      }
+
+      .image1 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(233, 123, 96) 41%,
+          rgba(89, 177, 237, 1) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image2 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgba(197, 233, 96, 0.692) 41%,
+          rgba(89, 177, 237, 1) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image3 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(96, 229, 233) 41%,
+          rgba(89, 177, 237, 1) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image4 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(233, 96, 233) 41%,
+          rgba(89, 177, 237, 1) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .image5 {
+        width: 40px;
+        height: 40px;
+        background: rgb(22, 19, 70);
+        background: linear-gradient(
+          295deg,
+          rgb(184, 184, 184) 41%,
+          rgb(0, 0, 0) 100%
+        );
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+
+      .follow {
+        border: none;
+        border-radius: 25px;
+        background-color: #0f1113;
+        color: white;
+        padding: 8px 15px;
+        font-weight: 700;
+        margin-left: 15px;
+        width: 80px;
+      }
+
+      .follow a {
+        color: white;
+      }
+
+      .more {
+        display: block;
+        text-decoration: none;
+        color: rgb(29, 155, 240);
+        font-weight: 800;
+      }
+
+      .user:hover {
+        background-color: #b3b6b6;
+        /* transition: all 0.5s; */
+      }
+
+      .follow:hover {
+        background-color: #2c3136;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <p>
+        <span id="time">3</span> 秒后跳转到
+        <a href="https://d.aging.run" target="_blank" rel="noopener noreferrer"
+          >AIer</a
+        >
+      </p>
+    </div>
+    <script>
+      var second = 3;
+      var time = document.getElementById("time");
+      function show() {
+        second--;
+        if (second == 0) {
+          location.href = "https://d.aging.run";
+        }
+        time.innerHTML = second + "";
+      }
+      //用来实现这个一秒实现一次这个方法
+      setInterval(show, 1000);
+    </script>
+  </body>
+</html>
