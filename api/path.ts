@@ -4,7 +4,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const paths = [
     {
       name: "AIer",
-      path: "https://gcloudlab.github.io",
+      path: "https://m.aging.run",
     },
     {
       name: "Shop",
@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     {
       name: "导航",
-      path: "https://gcloudlab.github.io/nav/",
+      path: "https://kee.so/best",
     }
   ];
 
