@@ -8,7 +8,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     {
       name: "Shop",
-      path: "https://shop.taoist.fun",
+      path: "https://shop.oihub.cc",
     },
     {
       name: "导航",
